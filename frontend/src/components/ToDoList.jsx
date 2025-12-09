@@ -1,13 +1,11 @@
+import ToDoItem from './ToDoItem';
 export default function ToDoList(props) {
 
-    console.log( props.tasks );
     const tasks = props.tasks;
     return (
-    <div>
+    <div className="bg-yellow-500 flex flex-col gap-8">
         {  tasks.map( (task) => (
-            <div key={task.id} >
-                <h3>{task.title}</h3>
-               </div>
+            <ToDoItem key={task.id} task={task} />
         )
         ) }
 
