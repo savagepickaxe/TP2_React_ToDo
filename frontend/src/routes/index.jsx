@@ -9,6 +9,8 @@ export const Route = createFileRoute('/')({
 
 function Home() {
   const [tasks, setTasks] = useState([]);
+   const [isLoading, setIsLoading] = useState(false);
+
   useEffect(() =>{
     
     const tasksData = async () => {
@@ -18,10 +20,10 @@ function Home() {
     }
     tasksData();
   },
-  []);
+  [isLoading]);
   
   return (
-    <ToDoList tasks={tasks}/>
+    <ToDoList tasks={tasks} shouldReload={() => setIsLoading(true)}/>
     
   );
 }

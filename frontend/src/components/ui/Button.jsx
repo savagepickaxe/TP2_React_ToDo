@@ -3,8 +3,17 @@ export default function Button(props) {
  let color;
  let rounded = 'rounded-lg'; ;
   switch (props.type) {
-    case 'primary':;
-  background = 'bg-gray-300';
+    case 'submit':;
+  background = 'bg-stone-400';
+  return(
+     <button
+        className={`p-2 px-5 ${rounded} shadow-md todo-item ${background} ${color}`}
+        onClick={props.onClick ? props.onClick : undefined}
+        type="submit"
+    >
+      {props.children}
+    </button>  
+  )
       break;
     case 'modifier':
       background = 'bg-yellow-300';
