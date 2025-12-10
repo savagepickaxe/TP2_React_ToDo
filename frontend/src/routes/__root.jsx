@@ -13,12 +13,10 @@ export const Route = createRootRoute({
         <Link to="/" style={{ marginRight: '20px', color: 'white' }}>
           Accueil
         </Link>
-        <Link to="/about" style={{ marginRight: '20px', color: 'white' }}>
-          À propos
+        <Link to="/chart" style={{ marginRight: '20px', color: 'white' }}>
+          Chart
         </Link>
-        <Link to="/produits" style={{ marginRight: '20px', color: 'white' }}>
-            Produits
-        </Link>
+      
       </nav>
       
       <div style={{ padding: '20px' }}>

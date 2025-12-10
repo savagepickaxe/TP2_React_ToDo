@@ -1,15 +1,27 @@
 import { createFileRoute } from '@tanstack/react-router';
+import { useState , useEffect } from 'react';
+import { TasksAPI } from '../../api/tasksAPI';
+import ToDoList from '../components/ToDoList.jsx';
 
 export const Route = createFileRoute('/')({
   component: Home,
 });
 
 function Home() {
+  const [tasks, setTasks] = useState([]);
+  useEffect(() =>{
+    
+    const tasksData = async () => {
+      const data = await TasksAPI.fetchTasks();
+      setTasks(data);
+      
+    }
+    tasksData();
+  },
+  []);
+  
   return (
-    <div>
-      <h1>🏠 Bienvenue sur la page d'accueil</h1>
-      <p>Ceci est la route principale de notre application.</p>
-      <p>Utilisez la navigation ci-dessus pour explorer le site !</p>
-    </div>
+    <ToDoList tasks={tasks}/>
+    
   );
 }
