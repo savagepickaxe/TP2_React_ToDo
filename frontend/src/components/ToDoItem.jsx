@@ -34,12 +34,8 @@ export default function ToDoItem(props) {
       </div>
 
       <div className="todo-item__actions flex gap-2">
-        <Button className="bg-blue-500 text-white px-4 py-2 rounded">
-          Edit
-        </Button>
-        <Button className="bg-red-500 text-white px-4 py-2 rounded">
-          Delete
-        </Button>
+        <Button type="modifier">Modifier</Button>
+        <Button type="supprimer">Supprimer</Button>
       </div>
     </div>
   );
