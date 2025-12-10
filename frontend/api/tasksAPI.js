@@ -25,7 +25,7 @@ export class TasksAPI {
     try {
       const response = await axios.put(
         `${import.meta.env.VITE_API_URL}/tasks.php?id=${taskData.id}`,
-        { is_completed: !taskData.currentStatus },
+        { is_completed: taskData.currentStatus },
       );
       return response.data;
     } catch (error) {
