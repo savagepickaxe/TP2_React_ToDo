@@ -9,13 +9,14 @@ export const Route = createFileRoute('/')({
 
 function Home() {
   const [tasks, setTasks] = useState([]);
-   const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() =>{
     
     const tasksData = async () => {
       const data = await TasksAPI.fetchTasks();
       setTasks(data);
+      setIsLoading(false);
       
     }
     tasksData();

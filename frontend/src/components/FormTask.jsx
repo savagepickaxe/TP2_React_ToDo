@@ -4,11 +4,11 @@ import { TasksAPI } from '../../api/tasksAPI.js';
 
 export default function FormTask(props) {
     const handleSubmit = async (event) => {
-    event.preventDefault();
-    await TasksAPI.createTask({
-      title: event.target.task.value,
-      dueDate: event.target.date.value,
-    });
+      event.preventDefault();
+      await TasksAPI.createTask({
+        title: event.target.titleTask.value,
+        dueDate: event.target.titleDate.value,
+      });
        props.shouldReload();
        event.target.titleTask.value = '';
        event.target.titleDate.value = '';
