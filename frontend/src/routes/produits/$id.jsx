@@ -8,7 +8,7 @@ export const Route = createFileRoute('/produits/$id')({
 function ProduitDetail() {
   const { id } = Route.useParams();
 
-  const produit = produits.find(p => p.id === parseInt(id, 10));
+  const task = produits.find(p => p.id === parseInt(id, 10));
 
   if (!produit) {
     return <div>❌ Produit non trouvé</div>;
