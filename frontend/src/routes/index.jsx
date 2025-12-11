@@ -17,11 +17,12 @@ function Home() {
       const data = await TasksAPI.fetchTasks();
       setTasks(data);
       
+      
     }
     tasksData();
   },
   [isLoading]);
-  
+  console.log(tasks)
   return (
     <ToDoList tasks={tasks} shouldReload={() => setIsLoading(true)}/>
     
