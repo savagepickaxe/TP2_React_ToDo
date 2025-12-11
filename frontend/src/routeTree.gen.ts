@@ -9,14 +9,14 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as AboutRouteImport } from './routes/about'
+import { Route as ChartRouteImport } from './routes/chart'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProduitsIndexRouteImport } from './routes/produits/index'
 import { Route as ProduitsIdRouteImport } from './routes/produits/$id'
 
-const AboutRoute = AboutRouteImport.update({
-  id: '/about',
-  path: '/about',
+const ChartRoute = ChartRouteImport.update({
+  id: '/chart',
+  path: '/chart',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -37,45 +37,45 @@ const ProduitsIdRoute = ProduitsIdRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
+  '/chart': typeof ChartRoute
   '/produits/$id': typeof ProduitsIdRoute
   '/produits': typeof ProduitsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
+  '/chart': typeof ChartRoute
   '/produits/$id': typeof ProduitsIdRoute
   '/produits': typeof ProduitsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
+  '/chart': typeof ChartRoute
   '/produits/$id': typeof ProduitsIdRoute
   '/produits/': typeof ProduitsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/produits/$id' | '/produits'
+  fullPaths: '/' | '/chart' | '/produits/$id' | '/produits'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/produits/$id' | '/produits'
-  id: '__root__' | '/' | '/about' | '/produits/$id' | '/produits/'
+  to: '/' | '/chart' | '/produits/$id' | '/produits'
+  id: '__root__' | '/' | '/chart' | '/produits/$id' | '/produits/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AboutRoute: typeof AboutRoute
+  ChartRoute: typeof ChartRoute
   ProduitsIdRoute: typeof ProduitsIdRoute
   ProduitsIndexRoute: typeof ProduitsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/about': {
-      id: '/about'
-      path: '/about'
-      fullPath: '/about'
-      preLoaderRoute: typeof AboutRouteImport
+    '/chart': {
+      id: '/chart'
+      path: '/chart'
+      fullPath: '/chart'
+      preLoaderRoute: typeof ChartRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -104,7 +104,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AboutRoute: AboutRoute,
+  ChartRoute: ChartRoute,
   ProduitsIdRoute: ProduitsIdRoute,
   ProduitsIndexRoute: ProduitsIndexRoute,
 }

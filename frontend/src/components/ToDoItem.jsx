@@ -4,22 +4,14 @@ import { TasksAPI } from "../../api/tasksAPI";
 
 export default function ToDoItem(props) {
   const [isCompleted, setIsCompleted] = useState(
-    props.task.is_completed === 1
+    props.task.is_completed
   );
   const handleDelete = async () => {
-    await TasksAPI.deleteTask(
-       props.task.id,
-    );
-    props.shouldReload();
+    props.delete(props.task.id);
   };
   const handleChange = async (event) => {
-    const newValue = event.target.checked;
-
-    setIsCompleted(newValue);
-    await TasksAPI.ModifyStatus({
-      id: props.task.id,
-      currentStatus: newValue,
-    });
+    setIsCompleted(event.target.checked);
+    props.toggle(props.task.id);
   };
 
   return (
