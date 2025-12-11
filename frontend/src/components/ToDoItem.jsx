@@ -1,11 +1,18 @@
 import Button from "./ui/Button";
 import { useState } from "react";
 import { TasksAPI } from "../../api/tasksAPI";
-
+import { useNavigate } from "@tanstack/react-router";
 export default function ToDoItem(props) {
+  const Navigate = useNavigate();
   const [isCompleted, setIsCompleted] = useState(
     props.task.is_completed === 1
   );
+  const handleModify = async () => {
+    await TasksAPI.modifyTask(
+     
+    );
+    props.shouldReload();
+  }
   const handleDelete = async () => {
     await TasksAPI.deleteTask(
        props.task.id,
@@ -38,7 +45,8 @@ export default function ToDoItem(props) {
       </div>
 
       <div className="todo-item__actions flex gap-2">
-        <Button type="modifier">Modifier</Button>
+        <Button type="modifier" onClick={() => { Navigate({to: '/edit/$id', params: { id: props.task.id}
+        })}}> Modifier</Button>
         <Button type="supprimer" onClick={handleDelete} >Supprimer</Button>
       </div>
     </div>

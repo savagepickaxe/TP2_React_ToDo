@@ -13,6 +13,7 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProduitsIndexRouteImport } from './routes/produits/index'
 import { Route as ProduitsIdRouteImport } from './routes/produits/$id'
+import { Route as EditIdRouteImport } from './routes/edit/$id'
 
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
@@ -34,16 +35,23 @@ const ProduitsIdRoute = ProduitsIdRouteImport.update({
   path: '/produits/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EditIdRoute = EditIdRouteImport.update({
+  id: '/edit/$id',
+  path: '/edit/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/edit/$id': typeof EditIdRoute
   '/produits/$id': typeof ProduitsIdRoute
   '/produits': typeof ProduitsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/edit/$id': typeof EditIdRoute
   '/produits/$id': typeof ProduitsIdRoute
   '/produits': typeof ProduitsIndexRoute
 }
@@ -51,20 +59,22 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/edit/$id': typeof EditIdRoute
   '/produits/$id': typeof ProduitsIdRoute
   '/produits/': typeof ProduitsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/produits/$id' | '/produits'
+  fullPaths: '/' | '/about' | '/edit/$id' | '/produits/$id' | '/produits'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/produits/$id' | '/produits'
-  id: '__root__' | '/' | '/about' | '/produits/$id' | '/produits/'
+  to: '/' | '/about' | '/edit/$id' | '/produits/$id' | '/produits'
+  id: '__root__' | '/' | '/about' | '/edit/$id' | '/produits/$id' | '/produits/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  EditIdRoute: typeof EditIdRoute
   ProduitsIdRoute: typeof ProduitsIdRoute
   ProduitsIndexRoute: typeof ProduitsIndexRoute
 }
@@ -99,12 +109,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProduitsIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/edit/$id': {
+      id: '/edit/$id'
+      path: '/edit/$id'
+      fullPath: '/edit/$id'
+      preLoaderRoute: typeof EditIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  EditIdRoute: EditIdRoute,
   ProduitsIdRoute: ProduitsIdRoute,
   ProduitsIndexRoute: ProduitsIndexRoute,
 }
