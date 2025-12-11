@@ -9,15 +9,15 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as AboutRouteImport } from './routes/about'
+import { Route as ChartRouteImport } from './routes/chart'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProduitsIndexRouteImport } from './routes/produits/index'
 import { Route as ProduitsIdRouteImport } from './routes/produits/$id'
 import { Route as EditIdRouteImport } from './routes/edit/$id'
 
-const AboutRoute = AboutRouteImport.update({
-  id: '/about',
-  path: '/about',
+const ChartRoute = ChartRouteImport.update({
+  id: '/chart',
+  path: '/chart',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -43,49 +43,72 @@ const EditIdRoute = EditIdRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+<<<<<<< HEAD
   '/about': typeof AboutRoute
   '/edit/$id': typeof EditIdRoute
+=======
+  '/chart': typeof ChartRoute
+>>>>>>> 529bc919e3903561074f3b25a980ab568962383f
   '/produits/$id': typeof ProduitsIdRoute
   '/produits': typeof ProduitsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+<<<<<<< HEAD
   '/about': typeof AboutRoute
   '/edit/$id': typeof EditIdRoute
+=======
+  '/chart': typeof ChartRoute
+>>>>>>> 529bc919e3903561074f3b25a980ab568962383f
   '/produits/$id': typeof ProduitsIdRoute
   '/produits': typeof ProduitsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+<<<<<<< HEAD
   '/about': typeof AboutRoute
   '/edit/$id': typeof EditIdRoute
+=======
+  '/chart': typeof ChartRoute
+>>>>>>> 529bc919e3903561074f3b25a980ab568962383f
   '/produits/$id': typeof ProduitsIdRoute
   '/produits/': typeof ProduitsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
+<<<<<<< HEAD
   fullPaths: '/' | '/about' | '/edit/$id' | '/produits/$id' | '/produits'
   fileRoutesByTo: FileRoutesByTo
   to: '/' | '/about' | '/edit/$id' | '/produits/$id' | '/produits'
   id: '__root__' | '/' | '/about' | '/edit/$id' | '/produits/$id' | '/produits/'
+=======
+  fullPaths: '/' | '/chart' | '/produits/$id' | '/produits'
+  fileRoutesByTo: FileRoutesByTo
+  to: '/' | '/chart' | '/produits/$id' | '/produits'
+  id: '__root__' | '/' | '/chart' | '/produits/$id' | '/produits/'
+>>>>>>> 529bc919e3903561074f3b25a980ab568962383f
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+<<<<<<< HEAD
   AboutRoute: typeof AboutRoute
   EditIdRoute: typeof EditIdRoute
+=======
+  ChartRoute: typeof ChartRoute
+>>>>>>> 529bc919e3903561074f3b25a980ab568962383f
   ProduitsIdRoute: typeof ProduitsIdRoute
   ProduitsIndexRoute: typeof ProduitsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/about': {
-      id: '/about'
-      path: '/about'
-      fullPath: '/about'
-      preLoaderRoute: typeof AboutRouteImport
+    '/chart': {
+      id: '/chart'
+      path: '/chart'
+      fullPath: '/chart'
+      preLoaderRoute: typeof ChartRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -121,8 +144,12 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+<<<<<<< HEAD
   AboutRoute: AboutRoute,
   EditIdRoute: EditIdRoute,
+=======
+  ChartRoute: ChartRoute,
+>>>>>>> 529bc919e3903561074f3b25a980ab568962383f
   ProduitsIdRoute: ProduitsIdRoute,
   ProduitsIndexRoute: ProduitsIndexRoute,
 }
