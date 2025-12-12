@@ -43,61 +43,38 @@ const EditIdRoute = EditIdRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-<<<<<<< HEAD
-  '/about': typeof AboutRoute
-  '/edit/$id': typeof EditIdRoute
-=======
   '/chart': typeof ChartRoute
->>>>>>> 529bc919e3903561074f3b25a980ab568962383f
+  '/edit/$id': typeof EditIdRoute
   '/produits/$id': typeof ProduitsIdRoute
   '/produits': typeof ProduitsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-<<<<<<< HEAD
-  '/about': typeof AboutRoute
-  '/edit/$id': typeof EditIdRoute
-=======
   '/chart': typeof ChartRoute
->>>>>>> 529bc919e3903561074f3b25a980ab568962383f
+  '/edit/$id': typeof EditIdRoute
   '/produits/$id': typeof ProduitsIdRoute
   '/produits': typeof ProduitsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-<<<<<<< HEAD
-  '/about': typeof AboutRoute
-  '/edit/$id': typeof EditIdRoute
-=======
   '/chart': typeof ChartRoute
->>>>>>> 529bc919e3903561074f3b25a980ab568962383f
+  '/edit/$id': typeof EditIdRoute
   '/produits/$id': typeof ProduitsIdRoute
   '/produits/': typeof ProduitsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-<<<<<<< HEAD
-  fullPaths: '/' | '/about' | '/edit/$id' | '/produits/$id' | '/produits'
+  fullPaths: '/' | '/chart' | '/edit/$id' | '/produits/$id' | '/produits'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/edit/$id' | '/produits/$id' | '/produits'
-  id: '__root__' | '/' | '/about' | '/edit/$id' | '/produits/$id' | '/produits/'
-=======
-  fullPaths: '/' | '/chart' | '/produits/$id' | '/produits'
-  fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/chart' | '/produits/$id' | '/produits'
-  id: '__root__' | '/' | '/chart' | '/produits/$id' | '/produits/'
->>>>>>> 529bc919e3903561074f3b25a980ab568962383f
+  to: '/' | '/chart' | '/edit/$id' | '/produits/$id' | '/produits'
+  id: '__root__' | '/' | '/chart' | '/edit/$id' | '/produits/$id' | '/produits/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-<<<<<<< HEAD
-  AboutRoute: typeof AboutRoute
-  EditIdRoute: typeof EditIdRoute
-=======
   ChartRoute: typeof ChartRoute
->>>>>>> 529bc919e3903561074f3b25a980ab568962383f
+  EditIdRoute: typeof EditIdRoute
   ProduitsIdRoute: typeof ProduitsIdRoute
   ProduitsIndexRoute: typeof ProduitsIndexRoute
 }
@@ -144,12 +121,8 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-<<<<<<< HEAD
-  AboutRoute: AboutRoute,
-  EditIdRoute: EditIdRoute,
-=======
   ChartRoute: ChartRoute,
->>>>>>> 529bc919e3903561074f3b25a980ab568962383f
+  EditIdRoute: EditIdRoute,
   ProduitsIdRoute: ProduitsIdRoute,
   ProduitsIndexRoute: ProduitsIndexRoute,
 }
