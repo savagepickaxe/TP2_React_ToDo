@@ -1,39 +1,52 @@
-import { createRootRoute, Link, Outlet } from '@tanstack/react-router'
-import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
-import { TanStackDevtools } from '@tanstack/react-devtools'
+import { createRootRoute, Link, Outlet } from "@tanstack/react-router";
+import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
+import { TanStackDevtools } from "@tanstack/react-devtools";
 
 export const Route = createRootRoute({
-  component: () => (
-    <div>
-      <nav style={{ 
-        padding: '20px', 
-        backgroundColor: '#333', 
-        color: 'white' 
-      }}>
-        <Link to="/" style={{ marginRight: '20px', color: 'white' }}>
-          Accueil
-        </Link>
-        <Link to="/chart" style={{ marginRight: '20px', color: 'white' }}>
-          Chart
-        </Link>
-      
-      </nav>
-      
-      <div style={{ padding: '20px' }}>
-        <Outlet />
-      </div>
+    component: () => (
+        <div>
+            <nav
+                style={{
+                    padding: "20px",
+                    backgroundColor: "#333",
+                    color: "white",
+                }}
+            >
+                <Link
+                    to="/"
+                    style={{
+                        marginRight: "20px",
+                        color: "white",
+                    }}
+                >
+                    Accueil
+                </Link>
+                <Link
+                    to="/chart"
+                    style={{
+                        marginRight: "20px",
+                        color: "white",
+                    }}
+                >
+                    Chart
+                </Link>
+            </nav>
 
-      <TanStackDevtools
-        config={{
-          position: 'bottom-right',
-        }}
-        plugins={[
-          {
-            name: 'Tanstack Router',
-            render: <TanStackRouterDevtoolsPanel />,
-          },
-        ]}
-      />
-    </div>
-  ),
-})
+            <div style={{ padding: "20px" }}>
+                <Outlet />
+            </div>
+
+            <TanStackDevtools
+                config={{
+                    position: "bottom-right",
+                }}
+                plugins={[
+                    {
+                        name: "Tanstack Router",
+                        render: <TanStackRouterDevtoolsPanel />,
+                    },
+                ]}
+            />
+        </div>
+    ),
+});

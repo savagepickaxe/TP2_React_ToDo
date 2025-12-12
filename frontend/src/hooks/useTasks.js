@@ -1,5 +1,5 @@
-import { TasksAPI } from '../../api/tasksAPI';
-import React from 'react';
+import { TasksAPI } from "../../api/tasksAPI";
+import React from "react";
 export function useTasks() {
     const [tasks, setTasks] = React.useState([]);
     const [loading, setLoading] = React.useState(true);
@@ -32,7 +32,7 @@ export function useTasks() {
                 return;
             }
             console.log("titre passe.");
-            if(dueDate){
+            if (dueDate) {
                 if (isNaN(new Date(dueDate).getTime())) {
                     setError("Date invalide");
                     return;
@@ -49,26 +49,29 @@ export function useTasks() {
     }, []);
 
     // Modifier le statut d'une tâche
-    const toggleTask = React.useCallback(async (taskId) => {
-        try {
-            // TODO: Trouver la tâche actuelle
-            const task = tasks.find(t => t.id === taskId);
-            if (!task) {
-                setError("Tâche non trouvée");
-                return;
+    const toggleTask = React.useCallback(
+        async (taskId) => {
+            try {
+                // TODO: Trouver la tâche actuelle
+                const task = tasks.find((t) => t.id === taskId);
+                if (!task) {
+                    setError("Tâche non trouvée");
+                    return;
+                }
+                const newStatus = task.is_completed === 1 ? 0 : 1;
+                // TODO: Appeler l'API PUT avec le nouveau statut
+                await TasksAPI.ModifyStatus({
+                    id: taskId,
+                    currentStatus: newStatus,
+                });
+                // TODO: Mettre à jour le state
+                await loadTasks();
+            } catch (err) {
+                setError("Échec de la modification du statut de la tâche");
             }
-            const newStatus = task.is_completed === 1 ? 0 : 1;
-            // TODO: Appeler l'API PUT avec le nouveau statut
-            await TasksAPI.ModifyStatus({
-                id: taskId,
-                currentStatus: newStatus,
-            });
-            // TODO: Mettre à jour le state
-            await loadTasks();
-        } catch (err) {
-            setError("Échec de la modification du statut de la tâche");
-        }
-    }, [tasks]);
+        },
+        [tasks],
+    );
 
     // Modifier une tâche
     const editTask = React.useCallback(async (taskId, title, dueDate) => {
@@ -78,7 +81,7 @@ export function useTasks() {
                 setError("Titre invalide");
                 return;
             }
-            if(dueDate){
+            if (dueDate) {
                 if (isNaN(new Date(dueDate).getTime())) {
                     setError("Date invalide");
                     return;
@@ -92,7 +95,6 @@ export function useTasks() {
             });
             // TODO: Mettre à jour le state
             await loadTasks();
-
         } catch (err) {
             setError("Échec de la modification de la tâche");
         }
@@ -115,5 +117,14 @@ export function useTasks() {
         loadTasks();
     }, [loadTasks]);
 
-    return { tasks, loading, error, loadTasks, addTask, toggleTask, editTask, deleteTask };
+    return {
+        tasks,
+        loading,
+        error,
+        loadTasks,
+        addTask,
+        toggleTask,
+        editTask,
+        deleteTask,
+    };
 }
