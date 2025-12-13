@@ -1,5 +1,7 @@
 import FormTask from "./FormTask";
-import ListTasks from "./ListTasks";
+// import ListTasks from "./ListTasks";
+import ListTasks from "./ListTasks.jsx";
+
 export default function ToDoList(props) {
     const tasks = props.tasks;
     console.log(props.tasks);
