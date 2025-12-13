@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useTasks } from "../hooks/useTasks.js";
+import ListTasks from "../components/listTasks";
 import {
     Chart as ChartJS,
     ArcElement,
@@ -9,6 +10,8 @@ import {
     plugins,
 } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
+import ToDoItem from "../components/ToDoItem.jsx";
+import ToDoList from "../components/ToDoList.jsx";
 
 export const Route = createFileRoute("/chart")({
     component: StatusChart,
@@ -17,17 +20,18 @@ export const Route = createFileRoute("/chart")({
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 function StatusChart() {
-    const { tasks, loading, error } = useTasks();
+    const { tasks, loading, error, addTask, deleteTask, toggleTask } = useTasks();
     const finishedTasks = tasks.filter(
         (task) => task.is_completed === 1,
     ).length;
-    const unfinishedTasks = tasks.length - finishedTasks;
+    const numberUnfinishedTasks = tasks.length - finishedTasks;
+    const unfinishedTasks = tasks.filter((task) => task.is_completed === 0);
     const data = {
         labels: ["Complétées", "Non complétées"],
         datasets: [
             {
                 label: "# of Votes",
-                data: [finishedTasks, unfinishedTasks],
+                data: [finishedTasks ? finishedTasks : 0, numberUnfinishedTasks ? numberUnfinishedTasks : 0],
                 backgroundColor: [
                     "rgba(255, 99, 132, 0.2)",
                     "rgba(54, 162, 235, 0.2)",
@@ -45,7 +49,7 @@ function StatusChart() {
         },
         plugins: {
             legend: {
-                position: "center", // ✅ plus propre
+                position: "center",
                 labels: {
                     padding: 20,
                     usePointStyle: true,
@@ -83,12 +87,23 @@ function StatusChart() {
     };
 
     return (
-        <div className="w-1/2 mx-auto p-10">
+        <div >
+            <div className="sm:w-1/2 mx-auto p-10">
             <Doughnut
                 data={data}
                 options={options}
                 plugins={[centerTextPlugin]}
             />
+            </div>
+                <ListTasks
+                    tasks={unfinishedTasks}
+                    statusLoading={loading}
+                    error={error}
+                    create={addTask}
+                    delete={deleteTask}
+                    toggle={toggleTask}
+                    personalizedStyle="rounded-2xl"
+                />
         </div>
     );
 }

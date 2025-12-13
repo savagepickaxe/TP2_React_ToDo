@@ -5,34 +5,25 @@ import { TanStackDevtools } from "@tanstack/react-devtools";
 export const Route = createRootRoute({
     component: () => (
         <div>
-            <nav
-                style={{
-                    padding: "20px",
-                    backgroundColor: "#333",
-                    color: "white",
-                }}
-            >
-                <Link
-                    to="/"
-                    style={{
-                        marginRight: "20px",
-                        color: "white",
-                    }}
-                >
-                    Accueil
-                </Link>
-                <Link
-                    to="/chart"
-                    style={{
-                        marginRight: "20px",
-                        color: "white",
-                    }}
-                >
-                    Chart
-                </Link>
-            </nav>
+            <header className="bg-violet-950 p-5 px-20 text-white flex flex-col sm:flex-row gap-4 justify-between items-center">
+                <h1 className="text-3xl font-semibold">Taskify</h1>
+                <nav className="bg-violet-900 border-2 border-violet-100 rounded-full flex p-1 gap-1 justify-around">
+                    <Link
+                        to="/"
+                        className="p-2 px-4 hover:text-violet-900 hover:bg-violet-100 hover:rounded-full"
+                    >
+                        Accueil
+                    </Link>
+                    <Link
+                        to="/chart"
+                        className="p-2 px-4 hover:text-violet-900 hover:bg-violet-100 hover:rounded-full"
+                    >
+                        Chart
+                    </Link>
+                </nav>
+            </header>
 
-            <div style={{ padding: "20px" }}>
+            <div className="mx-auto my-10 px-5 sm:px-20">
                 <Outlet />
             </div>
 

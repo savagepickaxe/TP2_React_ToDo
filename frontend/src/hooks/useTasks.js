@@ -104,6 +104,10 @@ export function useTasks() {
     const deleteTask = React.useCallback(async (taskId) => {
         try {
             // TODO: Demander confirmation
+            const confirmDelete = window.confirm("Êtes-vous sûr de vouloir supprimer cette tâche ?");
+            if (!confirmDelete) {
+                return;
+            }
             // TODO: Appeler l'API DELETE
             await TasksAPI.deleteTask(taskId);
             // TODO: Mettre à jour le state
