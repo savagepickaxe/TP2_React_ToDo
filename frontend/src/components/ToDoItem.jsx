@@ -59,7 +59,11 @@ export default function ToDoItem(props) {
                 >
                     Modifier
                 </Button>
-                <Button view="delete" icone={<Trash2 className="w-4 h-4" />} onClick={handleDelete}>
+                <Button
+                    view="delete"
+                    icone={<Trash2 className="w-4 h-4" />}
+                    onClick={handleDelete}
+                >
                     Supprimer
                 </Button>
             </div>

@@ -10,6 +10,13 @@ export default function FormTask(props) {
         event.target.date.value = "";
     };
     return (
+        <div>
+        {props.error && (
+            <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg relative mb-4" role="alert">
+                <strong className="font-bold">Erreur :</strong>
+                <span className="block sm:inline"> {props.error}</span>
+            </div>
+        )}
         <form
             onSubmit={handleSubmit}
             className="bg-violet-800 text-violet-950 flex flex-col sm:flex-row rounded-t-2xl gap-4 space-between align-middle height-full p-5  border-t-black-500"
@@ -26,5 +33,6 @@ export default function FormTask(props) {
             />
             <Button view="add" type="submit" icone={<Plus className="w-4 h-4" />}>Ajouter</Button>
         </form>
+        </div>
     );
 }

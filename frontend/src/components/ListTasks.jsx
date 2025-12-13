@@ -32,6 +32,7 @@ export default function ListTasks(props) {
                     <ToDoItem
                         key={task.id}
                         task={task}
+                        error={props.error}
                         delete={props.delete}
                         toggle={props.toggle}
                         statusLoading={props.statusLoading}

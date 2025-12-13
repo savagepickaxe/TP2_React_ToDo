@@ -31,14 +31,12 @@ export function useTasks() {
                 setError("Titre invalide");
                 return;
             }
-            console.log("titre passe.");
             if (dueDate) {
                 if (isNaN(new Date(dueDate).getTime())) {
                     setError("Date invalide");
                     return;
                 }
             }
-            console.log("date passe.");
             // TODO: Appeler l'API POST
             await TasksAPI.createTask({ title, dueDate });
             // TODO: Rafraîchir la liste

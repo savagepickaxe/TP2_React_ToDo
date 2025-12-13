@@ -11,11 +11,13 @@ export default function ToDoList(props) {
             <FormTask
                 statusLoading={props.statusLoading}
                 create={props.create}
+                error={props.error}
             />
             <ListTasks 
                 tasks={tasks}
                 delete={props.delete}
                 toggle={props.toggle}
+                error={props.error}
                 statusLoading={props.statusLoading}
                 personalizedStyle={"rounded-b-2xl"}   
             />  
