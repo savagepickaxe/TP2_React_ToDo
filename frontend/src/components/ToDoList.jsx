@@ -1,8 +1,5 @@
-import ToDoItem from "./ToDoItem";
 import FormTask from "./FormTask";
-import { List } from "lucide-react";
-import ListTasks from "./listTasks";
-
+import ListTasks from "./ListTasks";
 export default function ToDoList(props) {
     const tasks = props.tasks;
     console.log(props.tasks);

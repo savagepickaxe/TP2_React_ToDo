@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useTasks } from "../hooks/useTasks.js";
-import ListTasks from "../components/listTasks";
+import ListTasks from "../components/ListTasks";
 import {
     Chart as ChartJS,
     ArcElement,
