@@ -1,16 +1,47 @@
-# React + Vite
+# TODO App - TP2 React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Description
+Application de gestion de tâches refondue en React avec routage multi-pages.
 
-Currently, two official plugins are available:
+## Installation
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Prérequis
+- Node.js 16+
+- npm
 
-## React Compiler
+### Étapes
+1. Clonez le dépôt
+3. Lancez le serveur API PHP : `cd api && php -S localhost:8000`
+2. Installez les dépendances et lancez le serveur de développement : `cd frontend && npm install && npm run dev`
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Utilisation
 
-## Expanding the ESLint configuration
+- Accédez à http://localhost:5173
+- Utilisez l'application pour gérer vos tâches
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Déploiement
+
+L'application est déployée sur Vercel à l'adresse :  
+**[Lien du projet](https://tp2-react-todo-soz4.vercel.app/)**
+
+
+## Structure du projet
+
+- `backend/` : Backend PHP
+- `frontend/` : Frontend React
+    - `src/` : Code source React
+        - `components/` : Composants réutilisables
+            - `ui` : Composants liés à l'UI
+        - `hooks/` : Hooks personnalisés
+        - `routes/` : Pages et configuration routeur
+
+## Technologies utilisées
+
+- React 18
+- Vite
+- Tanstack Router
+- Chart.js + react-chartjs-2
+
+## Auteurs
+- Daoud Coulibaly
+- Esteban Henry
